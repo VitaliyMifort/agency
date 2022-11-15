@@ -1,0 +1,76 @@
+<div class="calculator-container">
+    <form class="form-container" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-wrapper">
+            <div class="form-control">
+                <label for="real_estate_price" class="form-label required">
+                    Real estate price, $
+                </label>
+                <input class="form-input" min="0" type="number" id="real_estate_price" placeholder="Real estate price"
+                       formControlName="real_estate_price"
+                       [ngClass]="!submittedFields['real_estate_price'] ? 'in' : 'out'"
+                       (focusin)="fieldInFocus('real_estate_price')"
+                       (focusout)="fieldOutFocus('real_estate_price')"
+                >
+                <div *ngIf="submittedFields['real_estate_price']">
+                    <div class="error-message" *ngIf="errorHandling('real_estate_price', 'required')">
+                        real estate price is required
+                    </div>
+                    <div class="error-message" *ngIf="errorHandling('real_estate_price', 'min')">
+                        incorrect number
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="rental_price" class="form-label required">
+                    Rental price, $ per month
+                </label>
+                <input class="form-input" type="number" id="rental_price" placeholder="Rental price"
+                       formControlName="rental_price"
+                       [ngClass]="!submittedFields['rental_price'] ? 'in' : 'out'"
+                       (focusin)="fieldInFocus('rental_price')"
+                       (focusout)="fieldOutFocus('rental_price')"
+                >
+                <div *ngIf="submittedFields['rental_price']">
+                    <div class="error-message" *ngIf="errorHandling('rental_price', 'required')">
+                        rental price is required
+                    </div>
+                    <div class="error-message" *ngIf="errorHandling('rental_price', 'min')">
+                        incorrect number
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="rental_price" class="form-label required">
+                    Additional expenses, $ per month
+                </label>
+                <input class="form-input" type="number" id="additional_expenses"
+                       placeholder="Additional expenses"
+                       formControlName="additional_expenses"
+                       [ngClass]="!submittedFields['additional_expenses'] ? 'in' : 'out'"
+                       (focusin)="fieldInFocus('additional_expenses')"
+                       (focusout)="fieldOutFocus('additional_expenses')"
+                >
+                <div *ngIf="submittedFields['additional_expenses']">
+                    <div class="error-message" *ngIf="errorHandling('additional_expenses', 'required')">
+                        additional expenses is required
+                    </div>
+                    <div class="error-message" *ngIf="errorHandling('additional_expenses', 'min')">
+                        incorrect number
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-submit" type="submit">Show income</button>
+        </div>
+    </form>
+
+    <div class="result-container">
+        <div class="field">Income per month (first 12 months) : <b>{{income.first12Months | currency}}</b></div>
+        <div class="field">Income per month (12 - 24 months) : <b>{{income.first24Months | currency}}</b></div>
+        <div class="field">Income per month (after 24 months) : <b>{{income.perMonth | currency}}</b></div>
+        <div class="field">Income for the first three years: <b>{{income.perThreeYears | currency}}</b></div>
+        <div class="field">Full payback: <b>{{income.fullPayback}} years</b></div>
+    </div>
+</div>

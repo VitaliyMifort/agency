@@ -1,0 +1,32 @@
+@import "./../../../global";
+
+.calculator-container {
+    max-width: 1200px;
+    padding: 120px;
+    margin: 0 auto;
+
+    display: flex;
+
+    .result-container {
+        width: 450px;
+        height: max-content;
+
+        margin-left: 40px;
+        padding: 20px;
+        background-color: rgba(#23eb82, 0.2);
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px 2px rgba(#000000, 0.1);
+
+        .field {
+            min-width: 300px;
+            margin-top: 32px;
+
+            @include nunitoRegular;
+            @include setFont(16px, 22px, #00193c);
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}

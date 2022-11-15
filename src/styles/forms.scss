@@ -1,0 +1,134 @@
+@import "mixins";
+
+.form-container {
+    width: max-content;
+    background-color: rgba(#00b4ff, 0.2);
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(#000000, 0.1);
+
+    .form-wrapper {
+        min-width: max-content;
+        padding: 20px;
+
+        border-radius: 20px;
+
+        display: flex;
+        flex-direction: column;
+
+        .form-control {
+            margin-top: 32px;
+            position: relative;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            .form-label {
+                width: max-content;
+                padding: 0;
+                margin: 0 0 0 20px;
+
+                @include nunitoRegular;
+                @include setFont(16px, 20px, #00193c);
+
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .form-input {
+                width: 300px;
+                height: 40px;
+                margin-top: 4px;
+                padding-left: 20px;
+                padding-right: 20px;
+
+                background-color: #FFFFFF;
+                @include nunitoRegular;
+                @include setFont(14px, 18px, #00193c);
+                border: 1px solid rgba(#00193C, 0.2);
+                border-radius: 20px;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                &[type=number] {
+                    -moz-appearance: textfield;
+                }
+
+                &:-webkit-autofill,
+                &:-webkit-autofill:hover,
+                &:-webkit-autofill:focus, {
+                    -webkit-text-fill-color: #000000;
+                    transition: background-color 5000s ease-in-out 0s;
+                }
+
+                &:active {
+                    outline: transparent none 0 !important;
+                    box-shadow: none !important;
+                    border-color: rgba(#00193C, 0.4);
+                }
+
+                &:focus {
+                    outline: transparent none 0 !important;
+                    box-shadow: none !important;
+                    border-color: rgba(#00193C, 0.4);
+                }
+
+                &::placeholder {
+                    @include nunitoRegular;
+                    @include setFont(14px, 18px, rgba(#00193c, 0.8));
+                }
+
+                &.ng-invalid.out::placeholder {
+                    color: #eb4726;
+                }
+
+                &.ng-invalid.out {
+                    outline: transparent none 0 !important;
+                    box-shadow: none !important;
+                    border-color: #eb4726;
+                    color: #eb4726;
+                }
+            }
+
+            .error-message {
+                margin-top: 4px;
+                margin-left: 20px;
+                @include nunitoRegular;
+                @include setFont(12px, 16px, #eb4726);
+                position: absolute;
+            }
+        }
+
+        .btn-submit {
+            width: 200px;
+            height: 40px;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+
+            background-color: rgba(#00193c, 0.8);
+            border: none;
+            outline: none;
+            border-radius: 50px;
+            cursor: pointer;
+
+            @include nunitoBold;
+            @include setFont(14px, 20px, #FFFFFF);
+            text-transform: uppercase;
+
+            &:active {
+                box-shadow: 1px 1px 1px rgba(#00193c, 0.5);
+            }
+
+            &:hover {
+                background-color: #00193c;
+            }
+        }
+    }
+}

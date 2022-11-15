@@ -1,0 +1,38 @@
+@import "styles/forms";
+@import "styles/mixins";
+
+@font-face {
+    font-family: 'Nunito-Bold';
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    font-display: swap;
+    src: local('Nunito-Bold'), url('/assets/fonts/Nunito-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito-Medium';
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    font-display: swap;
+    src: local('Nunito-Medium'), url('/assets/fonts/Nunito-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito-Regular';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    font-display: swap;
+    src: local('Nunito-Regular'), url('/assets/fonts/Nunito-Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #dedede;
+}

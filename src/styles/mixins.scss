@@ -1,0 +1,20 @@
+@mixin nunitoRegular() {
+    font-family: Nunito-Regular, sans-serif;
+    font-weight: 400;
+}
+
+@mixin nunitoMedium() {
+    font-family: Nunito-Medium, sans-serif;
+    font-weight: 500;
+}
+
+@mixin nunitoBold() {
+    font-family: Nunito-Bold, sans-serif;
+    font-weight: 700;
+}
+
+@mixin setFont($fontSize, $lineHeight, $color) {
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    color: $color;
+}
